@@ -35,6 +35,8 @@ class Settings:
     path_binary_ffmpeg: str = ""
     metadata_cover_dimension: CoverDimensions = CoverDimensions.Px320
     metadata_cover_embed: bool = True
+    metadata_artists_name_separator: str = ", "
+    metadata_album_artist_separator: str = ", "
     cover_album_file: bool = True
     extract_flac: bool = True
     downloads_simultaneous_per_track_max: int = 20
@@ -84,6 +86,8 @@ class HelpSettings:
         "The dimensions of the cover image embedded into the track. Possible values: 320x320, 640x640x 1280x1280."
     )
     metadata_cover_embed: str = "Embed album cover into file."
+    metadata_artists_name_separator: str = "Set embedded multiple artists separator"
+    metadata_album_artist_separator: str = "Set embedded multiple album artist separator"
     cover_album_file: str = "Save cover to 'cover.jpg', if an album is downloaded."
     extract_flac: str = "Extract FLAC audio tracks from MP4 containers and save them as `*.flac` (uses FFmpeg)."
     downloads_simultaneous_per_track_max: str = "Maximum number of simultaneous chunk downloads per track."

@@ -159,6 +159,8 @@ class DialogPreferences(QtWidgets.QDialog):
             "format_track",
             "format_video",
             "path_binary_ffmpeg",
+            "metadata_artists_name_separator",
+            "metadata_album_artist_separator",
         ]
 
     def _init_spin_box(self):

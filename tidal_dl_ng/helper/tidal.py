@@ -9,12 +9,11 @@ from tidalapi.user import LoggedInUser
 from tidal_dl_ng.constants import FAVORITES, MediaType
 from tidal_dl_ng.helper.exceptions import MediaUnknown
 
+def name_builder_artist(media: Track | Video | Album, separator: str = ", ") -> str:
+    return separator.join(artist.name for artist in media.artists)
 
-def name_builder_artist(media: Track | Video | Album) -> str:
-    return ", ".join(artist.name for artist in media.artists)
 
-
-def name_builder_album_artist(media: Track | Album) -> str:
+def name_builder_album_artist(media: Track | Album, separator: str = ", ") -> str:
     artists_tmp: [str] = []
     artists: [Artist] = media.album.artists if isinstance(media, Track) else media.artists
 
@@ -22,7 +21,7 @@ def name_builder_album_artist(media: Track | Album) -> str:
         if Role.main in artist.roles:
             artists_tmp.append(artist.name)
 
-    return ", ".join(artists_tmp)
+    return separator.join(artists_tmp)
 
 
 def name_builder_title(media: Track | Video | Mix | Playlist | Album | Video) -> str:
